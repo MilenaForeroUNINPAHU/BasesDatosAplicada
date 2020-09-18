@@ -8,9 +8,9 @@ create table OrdenEspecialidad (
     DepartamentodeEspecialidad varchar(50),
     idTipodeExamen int,
     idPacienteaExaminar int,
-    constraint PKOrdenEspecialidad primary key(idOrdenEspecialidad),
-    constraint FKidTipodeExamen foreign key(idTipodeExamen) references cita(idTipodeExamen),
-    constraint FKidPaciente foreign key(idPacienteaExaminar) references paciente(idPaciente)
+    constraint KPOrdenEspecialidad primary key(idOrdenEspecialidad),
+    constraint KFidTipodeExamen foreign key(idTipodeExamen) references cita(idTipodeExamen),
+    constraint KFidPaciente foreign key(idPacienteaExaminar) references paciente(idPaciente)
 );
 
 create table Paciente (
@@ -24,7 +24,7 @@ create table TipodeExamen (
 	idOrdenEspecialidad int auto_increment,
     idPacienteTipodeExamen int,
     idPacienteaExaminar int,
-    constraint PKidOrdenEspecialidad primary key(idOrdenEspecialidad),
-    constraint FKidPaciente foreign key(idPacienteaExaminar) references doctor(idOrdenEspecialidad),
-    constraint FKidOrdenEspacialidad foreign key(idTipodeExamen) references paciente(idPaciente)
+    constraint KPidOrdenEspecialidad primary key(idOrdenEspecialidad),
+    constraint KFidPaciente foreign key(idPacienteaExaminar) references doctor(idOrdenEspecialidad),
+    constraint KFidOrdenEspacialidad foreign key(idTipodeExamen) references paciente(idPaciente)
 )
